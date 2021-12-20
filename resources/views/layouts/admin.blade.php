@@ -23,6 +23,8 @@
 @yield("css_end")
 @yield("js_end")
 
+
+
 <style>
     .btn-mini{
         font-size: 14px!important;
