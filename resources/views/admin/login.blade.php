@@ -1,59 +1,55 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html>
 
 <head>
-    <title>Matrix Admin</title><meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ asset("assets/admin")}}/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="{{ asset("assets/admin")}}/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="{{ asset("assets/admin")}}/css/matrix-login.css" />
-    <link href="{{ asset("assets/admin")}}/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Panel Giriş</title>
+
+    <link href="{{asset("assets/admin")}}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset("assets/admin")}}/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="{{asset("assets/admin")}}/css/animate.css" rel="stylesheet">
+    <link href="{{asset("assets/admin")}}/css/style.css" rel="stylesheet">
 
 </head>
-<body>
-<div id="loginbox">
-    @include("home.message")
-    <form id="loginform" class="form-vertical" method="post" action="{{ route("login_check") }}">
-        @csrf
-        <div class="control-group normal_text"> <h3><img src="{{ asset("assets/admin")}}/img/logo.png" alt="Logo" /></h3></div>
-        <div class="control-group">
-            <div class="controls">
-                <div class="main_input_box">
-                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" name="email" placeholder="Email" />
-                </div>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <div class="main_input_box">
-                    <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" name="password" placeholder="Password" />
-                </div>
-            </div>
-        </div>
-        <div class="form-actions">
-            <span class="pull-left"><button href="{{ asset("assets/admin")}}/#" class="flip-link btn btn-info" id="to-recover">Lost password?</button></span>
-            <span class="pull-right"><button type="submit" class="btn btn-success" /> Login </button> </span>
-        </div>
-    </form>
-    <form id="recoverform" action="#" class="form-vertical">
-        <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
 
-        <div class="controls">
-            <div class="main_input_box">
-                <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
-            </div>
-        </div>
+<body class="gray-bg">
 
-        <div class="form-actions">
-            <span class="pull-left"><a href="{{ asset("assets/admin")}}/#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-            <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+
         </div>
-    </form>
+        <h3>SMT TRANSFER Panel</h3>
+
+        <p>Giriş Yap</p>
+
+        @include("home.flash-message")
+
+        <form class="m-t" role="form" method="POST" action="{{ route('login_check') }}">
+            @csrf
+            <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="Email" required="">
+            </div>
+            <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="Şifre" required="">
+            </div>
+            <label> <input type="checkbox" class="i-checks"  name="remember"> Beni Hatırla </label>
+            <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+            <a href="{{ route('password.request') }}"><h3>Şifreni mi unuttun ?</h3></a>
+        </form>
+    </div>
 </div>
 
-<script src="{{ asset("assets/admin")}}/js/jquery.min.js"></script>
-<script src="{{ asset("assets/admin")}}/js/matrix.login.js"></script>
+<!-- Mainly scripts -->
+<script src="{{asset("assets/admin")}}/js/jquery-3.1.1.min.js"></script>
+<script src="{{asset("assets/admin")}}/js/popper.min.js"></script>
+<script src="{{asset("assets/admin")}}/js/bootstrap.js"></script>
+
 </body>
 
 </html>
