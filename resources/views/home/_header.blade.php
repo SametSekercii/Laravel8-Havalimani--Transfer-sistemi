@@ -59,8 +59,8 @@
                         <!-- cart box -->
                         <div class="aa-cartbox">
                             <a class="aa-cart-link" href="{{route('reservation_alma')}}">
-                                <span class="fa fa-clock-o"></span>
-                                <span class="aa-cart-title">Randevu Al</span>
+                                <span class="fa fa-car"></span>
+                                <span class="aa-cart-title">Rezervasyon Yap</span>
                             </a>
 
                         </div>
