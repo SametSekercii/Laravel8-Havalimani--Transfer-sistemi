@@ -26,7 +26,6 @@ class checkadmin
                 return redirect()->route("admin_login")->with("error","Your are not an staff for enter here");
             }
         }
-
         return $next($request);
     }
 }

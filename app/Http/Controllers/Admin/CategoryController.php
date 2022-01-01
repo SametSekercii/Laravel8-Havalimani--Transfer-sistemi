@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+
     protected $appends =[
         "getParentsTree"
     ];
@@ -20,10 +21,11 @@ class CategoryController extends Controller
         }
 
         $parent= Category::find($category->parent_id);
-        $title=$parent->title.' > '. $title;
+        $title=$parent->title.' / '. $title;
         return CategoryController::getParentsTree($parent,$title);
 
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -65,14 +67,8 @@ class CategoryController extends Controller
         $data->description=$request->description;
         $data->status=$request->status;
         $data->slug=$request->slug;
-        $is_save=$data->save();
-        if($is_save){
-            return redirect()->route("admin_category")->with("succes","Category is created");
-        }
-        else
-        {
-            return redirect()->route("admin_category_add")->with("warning","Category is not created");
-        }
+        $data->save();
+        return redirect()->route("admin_category");
 
     }
 
@@ -119,13 +115,8 @@ class CategoryController extends Controller
         $data->description=$request->description;
         $data->status=$request->status;
         $data->slug=$request->slug;
-        if($data->save()){
-            return redirect()->route("admin_category")->with("succes","Category is created");
-        }
-        else
-        {
-            return redirect()->route("admin_category_add")->with("warning","Category is not created");
-        }
+        $data->save();
+        return redirect()->route("admin_category");
     }
 
     /**
@@ -136,8 +127,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category,$id)
     {
-        $data=Category::find($id);
-        $data->delete();
+        Category::destroy($id);
         return redirect()->route("admin_category");
     }
 }
