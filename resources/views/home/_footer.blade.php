@@ -42,7 +42,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="aa-footer-widget">
                                     <div class="aa-footer-widget">
-                                        <h3>Kuaför Saati</h3>
+                                        <h3>SMT Transfer</h3>
                                         <address>
                                             <p> {{$setting->updated_at}}</p>
                                             <p><span class="fa fa-phone"></span>{{$setting->phone}}</p>
