@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\Transfer;
+use Livewire\Component;
+
+class Search extends Component
+{
+    public $search='';
+    public function render()
+    {
+
+        $datalist=Transfer::where('title','like','%'.$this->search.'%')->get();
+        return view('livewire.search',[
+            'datalist'=>$datalist,
+            'query'=>$this->search,
+        ]);
+    }
+}
