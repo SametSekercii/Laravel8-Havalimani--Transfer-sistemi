@@ -33,8 +33,8 @@
 
                 <!-- New Profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    <span class="block rounded-full w-20 h-20"
+                          x-bind:style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
@@ -64,6 +64,16 @@
             <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
+        </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="phone" value="{{ __('Phone') }}" />
+            <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="state.phone" />
+            <x-jet-input-error for="phone" class="mt-2" />
+        </div>
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="adress" value="{{ __('Adress') }}" />
+            <x-jet-input id="adress" type="text" class="mt-1 block w-full" wire:model.defer="state.adress" />
+            <x-jet-input-error for="adress" class="mt-2" />
         </div>
     </x-slot>
 
